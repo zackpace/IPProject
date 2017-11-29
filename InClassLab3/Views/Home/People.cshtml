@@ -1,0 +1,40 @@
+﻿@model InClassLab3.Models.PersonViewModel
+
+@{
+    ViewBag.Title = "People";
+}
+
+<h2>@model.Person.FirstName 
+    @model.Person.LastName
+    </h2>
+
+<p>@model.Person.Address1
+        @model.Person.Address2
+         @model.Person.City
+         @model.Person.State
+          @model.Person.Zip
+        @model.Person.Phone  
+</p>
+
+
+
+
+<h4> Accounts</h4>
+<table class="table table-hover table-striped">
+    @if (model.Accounts.Any())
+            {
+                foreach (var account in model.Accounts)
+                {
+            <tr>
+                <td>@account.AccountNumber</td>
+                <td>@account.Balance</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="6">No Accounts found</td>
+        </tr>
+    }
+</table>
