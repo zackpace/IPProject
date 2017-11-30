@@ -73,13 +73,13 @@ namespace InClassLab3.Controllers
 
             BankDB.DataRepository db = new BankDB.DataRepository();
 
+            var transaction = db.GetTransactionsForAccount(id);
             var account = db.GetAccount(id);
-
     
-            var viewModel = new AccountViewModel
+            var viewModel = new TransactionViewModel
             {
-               
-                Account = account
+                Account = account,
+                Transaction = transaction
 
             };
             return PartialView(viewModel);

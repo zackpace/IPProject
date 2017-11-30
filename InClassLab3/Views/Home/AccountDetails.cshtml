@@ -1,0 +1,28 @@
+﻿@model InClassLab3.Models.TransactionViewModel
+
+
+<p>
+@Model.Account.Id   <br />
+    @Model.Account.Type <br/>
+    @Model.Account.InterestRate
+    
+    
+
+</p>
+
+
+
+<h4> Transaction</h4>
+<table class="table table-hover table-striped">
+  
+       @foreach (var transaction in Model.Transaction)
+        {
+            <tr class="account">
+                <td class="id">@transaction.Id</td>
+                <td>@transaction.Amount</td>
+                <td>@transaction.TransactionDate</td>
+            </tr>
+        }
+    
+  
+</table>

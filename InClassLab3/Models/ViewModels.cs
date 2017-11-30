@@ -26,9 +26,10 @@ namespace InClassLab3.Models
         public Branch Branch { get; set; }
 
     }
-    public class AccountViewModel
+    public class TransactionViewModel
     {
         public Account Account { get; set; }
+        public List<Transaction> Transaction { get; set; }
     }
 
 }

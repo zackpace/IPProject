@@ -17,23 +17,18 @@
     });
     $(".account").click(function () {
         var id = $(this).children(".id").text();
-        var test = 2;
+        
         $.ajax({
-            type: "GET",
-            url: "/Home/GetSomePartialView/",
-            data: someArguments,
-            success: function (jsReturnArgs) {
+            url: "/Home/AccountDetails?id=" + id
+           
+           
+        }).done(function (html) {
+        
+            $("#AccountDetails").html(html)
 
-                if (jsReturnArgs.Status === 300) { //300 is an arbitrary value I just made up right now
-                    showPopup("You do not have access to that.");
-                }
-
-                $("#someDiv").html(jsReturnArgs.ViewString); //the HTML I returned from the controller
-            },
-            error: function (errorData) { onError(errorData); }
         });
 
-        $(".AccountDetails").append("<p>" + test + "</p>");
+       
       
 
     });
