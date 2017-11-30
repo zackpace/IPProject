@@ -1,4 +1,4 @@
-﻿using InClassLab3.Data;
+﻿
 using InClassLab3.Models;
 using System;
 using System.Collections.Generic;
@@ -6,16 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace InClassLab3.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+      
 
-        public ActionResult Directory()
+        public ActionResult Index()
         {
 
             BankDB.DataRepository db = new BankDB.DataRepository();
@@ -69,6 +67,26 @@ namespace InClassLab3.Controllers
 
 
         }
+
+        public ActionResult AccountDetails(int id)
+        {
+
+            BankDB.DataRepository db = new BankDB.DataRepository();
+
+            var account = db.GetAccount(id);
+
+    
+            var viewModel = new AccountViewModel
+            {
+               
+                Account = account
+
+            };
+            return PartialView(viewModel);
+
+
+        }
+
 
     }
 }

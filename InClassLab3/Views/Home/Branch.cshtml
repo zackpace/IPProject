@@ -4,33 +4,41 @@
     ViewBag.Title = "Branch";
 }
 
-<h2>@model.Branch.Name
+<h2> @Model.Branch.Name
 </h2>
 <p>
-    @model.Branch.Address1
-@model.Branch.Address2
-@model.Branch.City
-@model.Branch.State
-@model.Branch.Zip
+    @Model.Branch.Address1
+@Model.Branch.Address2
+@Model.Branch.City
+@Model.Branch.State
+@Model.Branch.Zip
 </p>
 
 
 <h4> Accounts</h4>
 <table class="table table-hover table-striped">
-    @if (model.Accounts.Any())
-            {
-                foreach (var account in model.Accounts)
-                {
-            <tr>
-                <td>@account.AccountNumber</td>
-                <td>@account.Balance</td>
+    @if (Model.Accounts.Any())
+    {
+        foreach (var account in Model.Accounts)
+        {
+            <tr class="account">
+                <td class="id">@account.Id</td>
+                <td>@account.AccountBalance</td>
             </tr>
         }
     }
     else
     {
-        <tr>
-            <td colspan="6">No Accounts found</td>
-        </tr>
+        < tr >
+            < td colspan = "6" > No Accounts found</ td >
+
+
+             </ tr >
     }
 </table>
+
+<div class="AccountDetails">
+
+
+
+</div>

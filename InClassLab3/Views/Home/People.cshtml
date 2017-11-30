@@ -4,16 +4,18 @@
     ViewBag.Title = "People";
 }
 
-<h2>@model.Person.FirstName 
-    @model.Person.LastName
+<h2>@Model.Person.FirstName 
+    @Model.Person.LastName
     </h2>
 
-<p>@model.Person.Address1
-        @model.Person.Address2
-         @model.Person.City
-         @model.Person.State
-          @model.Person.Zip
-        @model.Person.Phone  
+<p>
+    @Model.Person.Address1
+    @Model.Person.Address2
+    @Model.Person.City
+    @Model.Person.State
+    @Model.Person.Zip
+    <br />
+    @Model.Person.Phone  
 </p>
 
 
@@ -21,13 +23,13 @@
 
 <h4> Accounts</h4>
 <table class="table table-hover table-striped">
-    @if (model.Accounts.Any())
+    @if (Model.Accounts.Any())
             {
-                foreach (var account in model.Accounts)
+                foreach (var account in Model.Accounts)
                 {
-            <tr>
-                <td>@account.AccountNumber</td>
-                <td>@account.Balance</td>
+          <tr class="account">
+                <td class="id">@account.Id</td>
+                <td>@account.AccountBalance</td>
             </tr>
         }
     }
@@ -38,3 +40,9 @@
         </tr>
     }
 </table>
+
+<div class="AccountDetails">
+
+
+
+</div>
